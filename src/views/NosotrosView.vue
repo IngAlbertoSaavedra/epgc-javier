@@ -85,9 +85,13 @@
           <h3>Misión</h3>
 
           <p>
-            Brindar soluciones de ingeniería, seguridad industrial, gestión
-            ambiental y capacitación que ayuden a nuestros clientes a operar
-            con mayor seguridad, cumplimiento y eficiencia.
+            Brindar servicios especializados de capacitación, estudios ambientales y consultoría, ofreciendo 
+            soluciones técnicas, confiables y oportunas que ayuden a nuestros clientes a cumplir con sus
+            obligaciones normativas, fortalecer las competencias de su personal y mejorar sus procesos.
+            <br><br>
+            En EPGC trabajamos con profesionalismo, experiencia y compromiso, adaptándonos a las necesidades
+            de cada organización y generando valor mediante servicios orientados al cumplimiento, 
+            la prevención de riesgos y la mejora continua.
           </p>
         </article>
 
@@ -99,9 +103,12 @@
           <h3>Visión</h3>
 
           <p>
-            Ser una empresa reconocida por integrar conocimiento técnico,
-            servicio en campo y formación especializada, generando valor
-            sostenible para nuestros clientes y sus operaciones.
+            Consolidar a EPGC como una empresa referente en México en capacitación, estudios ambientales y consultoría, 
+            reconocida por la calidad técnica de sus servicios, la confianza de sus clientes y su capacidad para ofrecer 
+            soluciones integrales e innovadoras.
+            <br><br>
+            Buscamos construir relaciones de largo plazo, ampliar continuamente nuestro portafolio de servicios y desarrollar 
+            una organización sólida, competitiva y sostenible, capaz de atender las necesidades presentes y futuras de nuestros clientes.
           </p>
         </article>
       </div>

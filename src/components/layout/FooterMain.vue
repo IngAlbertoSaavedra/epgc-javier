@@ -29,11 +29,23 @@
               <a :href="`mailto:${contacto.correo}`">{{ contacto.correo }}</a>
             </li>
 
-            <li>
-              <img :src="iconTelefono" alt="" class="footer-contact-icon" aria-hidden="true">
-              <a :href="`tel:${contacto.telefono.replace(/\s+/g, '')}`">
-                {{ contacto.telefono }}
-              </a>
+            <li class="footer-phone-item">
+              <img
+                :src="iconTelefono"
+                alt=""
+                class="footer-contact-icon"
+                aria-hidden="true"
+              >
+
+              <div class="footer-phone-list">
+                <a
+                  v-for="telefono in contacto.telefonos"
+                  :key="telefono"
+                  :href="`tel:${telefono.replace(/\D/g, '')}`"
+                >
+                  {{ telefono }}
+                </a>
+              </div>
             </li>
           </ul>
         </div>
@@ -79,9 +91,13 @@ import iconFacebook from '../../assets/icons/facebook.png'
 import iconInstagram from '../../assets/icons/instagram.png'
 
 const contacto = {
-  ubicacion: 'Guadalajara, Jalisco, México',
+  ubicacion: 'Priv. El Mirador No. 10, La Sillita, Tonalá.',
   correo: 'contacto@epgc.com',
-  telefono: '+52 33 1234 5678'
+  telefonos: [
+    '33.14.14.33.36',
+    '33.18.95.57.92',
+    '33.29.65.20.09'
+  ]
 }
 </script>
 
@@ -254,6 +270,20 @@ const contacto = {
   color: #ffffff;
 }
 
+.footer-phone-item {
+  align-items: flex-start;
+}
+
+.footer-phone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-phone-list a {
+  display: block;
+}
+
 @media (max-width: 1000px) {
   .footer-top {
     grid-template-columns: 1fr 1fr;
@@ -281,25 +311,76 @@ const contacto = {
   }
 
   .footer-top {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-areas:
+      "brand contact"
+      "social social";
+
+    gap: 22px 18px;
+    align-items: start;
   }
 
   .footer-brand {
-    grid-column: auto;
+    grid-area: brand;
+    padding-left: 14px;
   }
 
   .footer-logo {
-    max-width: 230px;
+    max-width: 180px;
   }
 
-  .footer-contact h4,
-  .footer-social h4 {
-    font-size: 14px;
+  .footer-contact {
+    grid-area: contact;
+    padding-left: 10px;
+  }
+
+  .footer-social {
+    grid-area: social;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-contact-list {
+    gap: 8px;
   }
 
   .footer-contact-list li {
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .footer-contact-icon {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+  }
+
+  .footer-phone-item {
+    align-items: flex-start;
+  }
+
+  .footer-phone-list {
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .footer-phone-list a {
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .footer-social h4 {
+    text-align: center;
+  }
+
+  .footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
   }
 
   .footer-bottom {
@@ -313,8 +394,52 @@ const contacto = {
     padding: 24px 0 13px;
   }
 
+  .footer-top {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 20px 12px;
+  }
+
+  .footer-brand {
+    padding-left: 6px;
+  }
+
   .footer-logo {
-    max-width: 210px;
+    max-width: 150px;
+  }
+
+  .footer-contact {
+    padding-left: 4px;
+    min-width: 0;
+  }
+
+  .footer-contact h4,
+  .footer-social h4 {
+    font-size: 14px;
+  }
+
+  .footer-contact-list {
+    gap: 7px;
+  }
+
+  .footer-contact-list li {
+    gap: 8px;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+
+  .footer-contact-icon {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+  }
+
+  .footer-phone-list {
+    gap: 2px;
+  }
+
+  .footer-phone-list a {
+    font-size: 10px;
+    line-height: 1.2;
   }
 
   .footer-social-link,

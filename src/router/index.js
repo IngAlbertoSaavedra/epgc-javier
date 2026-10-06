@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import HomeView from "../views/HomeView.vue";
 import NosotrosView from "../views/NosotrosView.vue";
+import CapacitadoresView from '../views/CapacitadoresView.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: "/nosotros",
     name: "nosotros",
     component: NosotrosView,
+  },
+  {
+    path: '/capacitadores',
+    name: 'capacitadores',
+    component: CapacitadoresView
   },
 ];
 

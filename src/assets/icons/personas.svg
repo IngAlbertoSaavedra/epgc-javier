@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Personas</title>
+  <g fill="#2A8F2A">
+    <circle cx="32" cy="20" r="8"/>
+    <circle cx="16" cy="24" r="6"/>
+    <circle cx="48" cy="24" r="6"/>
+    <path d="M18 49c0-8.3 6.7-15 15-15h-2c8.3 0 15 6.7 15 15v3H18v-3Z"/>
+    <path d="M4 48c0-6.6 5.4-12 12-12h5.5a18.8 18.8 0 0 0-5.5 13.3V52H4v-4Z"/>
+    <path d="M60 48c0-6.6-5.4-12-12-12h-5.5A18.8 18.8 0 0 1 48 49.3V52h12v-4Z"/>
+  </g>
+</svg>

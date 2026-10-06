@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Trabajador de campo</title>
+  <g fill="#F47700">
+    <path d="M18 24c0-7.7 6.3-14 14-14s14 6.3 14 14v2H18v-2Z"/>
+    <rect x="15" y="24" width="34" height="5" rx="2.5"/>
+    <circle cx="32" cy="35" r="8"/>
+    <path d="M12 56c0-10.5 8.5-19 19-19h2c10.5 0 19 8.5 19 19v2H12v-2Z"/>
+    <path d="M24 43h4l2 15h-5l-1-15Zm12 0h4l-1 15h-5l2-15Z" fill="#fff"/>
+  </g>
+</svg>

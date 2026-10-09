@@ -1,8 +1,10 @@
+
 import { createRouter, createWebHistory } from "vue-router";
 
 import HomeView from "../views/HomeView.vue";
 import NosotrosView from "../views/NosotrosView.vue";
-import CapacitadoresView from '../views/CapacitadoresView.vue'
+import CapacitadoresView from "../views/CapacitadoresView.vue";
+import CapacitacionesView from "../views/CapacitacionesView.vue";
 
 const routes = [
   {
@@ -16,9 +18,17 @@ const routes = [
     component: NosotrosView,
   },
   {
-    path: '/capacitadores',
-    name: 'capacitadores',
-    component: CapacitadoresView
+    path: "/capacitadores",
+    name: "capacitadores",
+    component: CapacitadoresView,
+  },
+
+  // Capacitaciones: una View para las cinco opciones
+  {
+    path: "/capacitacion/:slug",
+    name: "capacitacion-detalle",
+    component: CapacitacionesView,
+    props: true,
   },
 ];
 

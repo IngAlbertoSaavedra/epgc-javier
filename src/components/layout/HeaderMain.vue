@@ -26,7 +26,7 @@
           Nosotros
         </RouterLink>
 
-        <div class="nav-item nav-services">
+        <div class="nav-item nav-services" :class="{ 'menu-open': desktopMenuOpen }" @mouseenter="desktopMenuOpen = true" @mouseleave="desktopMenuOpen = false">
           <a
             href="#servicios"
             class="nav-link services-trigger"
@@ -60,30 +60,30 @@
                 </div>
 
                 <div class="mega-links">
-                  <a href="#">
+                  <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeDesktopMenu">
                     <span>Brigadas de emergencia</span>
                     <span class="mega-arrow">›</span>
-                  </a>
+                  </RouterLink>
 
-                  <a href="#">
+                  <RouterLink to="/capacitacion/corte-y-soldadura" @click="closeDesktopMenu">
                     <span>Corte y soldadura</span>
                     <span class="mega-arrow">›</span>
-                  </a>
+                  </RouterLink>
 
-                  <a href="#">
+                  <RouterLink to="/capacitacion/trabajo-en-alturas" @click="closeDesktopMenu">
                     <span>Trabajo en alturas</span>
                     <span class="mega-arrow">›</span>
-                  </a>
+                  </RouterLink>
 
-                  <a href="#">
+                  <RouterLink to="/capacitacion/montacarguista" @click="closeDesktopMenu">
                     <span>Montacarguista</span>
                     <span class="mega-arrow">›</span>
-                  </a>
+                  </RouterLink>
 
-                  <a href="#">
+                  <RouterLink to="/capacitacion/cursos-certificantes" @click="closeDesktopMenu">
                     <span>Cursos certificantes</span>
                     <span class="mega-arrow">›</span>
-                  </a>
+                  </RouterLink>
                 </div>
               </section>
 
@@ -169,7 +169,6 @@
           </div>
         </div>
 
-        <a href="#" class="nav-link">Capacitaciones</a>
         <RouterLink
           to="/capacitadores"
           class="nav-link"
@@ -248,11 +247,11 @@
             </div>
 
             <div class="mobile-service-links">
-              <a href="#" @click.prevent="closeMobileMenu">Brigadas de emergencia</a>
-              <a href="#" @click.prevent="closeMobileMenu">Corte y soldadura</a>
-              <a href="#" @click.prevent="closeMobileMenu">Trabajo en alturas</a>
-              <a href="#" @click.prevent="closeMobileMenu">Montacarguista</a>
-              <a href="#" @click.prevent="closeMobileMenu">Cursos certificantes</a>
+              <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeMobileMenu">Brigadas de emergencia</RouterLink>
+              <RouterLink to="/capacitacion/corte-y-soldadura" @click="closeMobileMenu">Corte y soldadura</RouterLink>
+              <RouterLink to="/capacitacion/trabajo-en-alturas" @click="closeMobileMenu">Trabajo en alturas</RouterLink>
+              <RouterLink to="/capacitacion/montacarguista" @click="closeMobileMenu">Montacarguista</RouterLink>
+              <RouterLink to="/capacitacion/cursos-certificantes" @click="closeMobileMenu">Cursos certificantes</RouterLink>
             </div>
           </section>
 
@@ -314,6 +313,12 @@ import logoHeader from '../../assets/images/logo/logo-epgc-horizontal.webp'
 import personasIcon from '../../assets/icons/personas.png'
 import engraneIcon from '../../assets/icons/engrane.png'
 import hojaArbolIcon from '../../assets/icons/hoja_arbol.png'
+
+const desktopMenuOpen = ref(false)
+
+const closeDesktopMenu = () => {
+  desktopMenuOpen.value = false
+}
 
 const mobileMenuOpen = ref(false)
 const mobileServicesOpen = ref(false)
@@ -423,8 +428,7 @@ const closeMobileMenu = () => {
 
 .nav-link:hover::after,
 .nav-link.active::after,
-.nav-services:hover > .services-trigger::after,
-.nav-services:focus-within > .services-trigger::after {
+.nav-services.menu-open > .services-trigger::after {
   width: 100%;
 }
 
@@ -513,8 +517,7 @@ const closeMobileMenu = () => {
     rotate(45deg);
 }
 
-.nav-services:hover .mega-menu,
-.nav-services:focus-within .mega-menu {
+.nav-services.menu-open .mega-menu {
   opacity: 1;
   visibility: visible;
 

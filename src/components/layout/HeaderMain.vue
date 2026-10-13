@@ -179,9 +179,13 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#" class="quote-button">
+        <button
+          type="button"
+          class="quote-button"
+          @click="abrirCotizacion"
+        >
           Solicitar cotización
-        </a>
+        </button>
 
         <button
           class="mobile-menu-button"
@@ -303,16 +307,46 @@
       </nav>
     </div>
   </header>
+
+  <FormularioCotizacion
+    :abierto="cotizacionAbierta"
+    :servicio-inicial="servicioCotizacion"
+    @cerrar="cotizacionAbierta = false"
+  />
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import FormularioCotizacion from '../FormularioCotizacion.vue'
 
 import logoHeader from '../../assets/images/logo/logo-epgc-horizontal.webp'
 
 import personasIcon from '../../assets/icons/personas.png'
 import engraneIcon from '../../assets/icons/engrane.png'
 import hojaArbolIcon from '../../assets/icons/hoja_arbol.png'
+
+const route = useRoute()
+const cotizacionAbierta = ref(false)
+
+const nombresCapacitaciones = {
+  'cursos-certificantes': 'Cursos certificantes',
+  'montacarguista': 'Montacarguista',
+  'trabajo-en-alturas': 'Trabajo en alturas',
+  'corte-y-soldadura': 'Corte y soldadura',
+  'brigadas-de-emergencia': 'Brigadas de emergencia',
+}
+
+const servicioCotizacion = computed(() =>
+  nombresCapacitaciones[route.params.slug] || ''
+)
+
+function abrirCotizacion() {
+  desktopMenuOpen.value = false
+  mobileMenuOpen.value = false
+  mobileServicesOpen.value = false
+  cotizacionAbierta.value = true
+}
 
 const desktopMenuOpen = ref(false)
 
@@ -434,6 +468,8 @@ const closeMobileMenu = () => {
 
 .quote-button {
   flex-shrink: 0;
+  border: 0;
+  cursor: pointer;
 
   padding: 13px 20px;
 

@@ -13,10 +13,10 @@
           <h2 id="cot-titulo">Solicitar cotización</h2>
           <p>Cuéntanos qué necesitas y prepararemos tu solicitud.</p>
         </div>
-        <button type="button" class="cot-cerrar" aria-label="Cerrar formulario" @click="cerrar">×</button>
+        <button type="button" class="cot-cerrar" aria-label="Cerrar formulario" @click="cerrar" :disabled="enviando">×</button>
       </div>
 
-      <form class="cot-formulario" @submit.prevent="prepararSolicitud">
+      <form class="cot-formulario" @submit.prevent="enviarSolicitud">
         <div class="cot-grid">
           <label>
             Nombre completo <span>*</span>
@@ -52,23 +52,26 @@
           <textarea v-model.trim="datos.mensaje" required maxlength="2500" rows="4" placeholder="Describe brevemente tu solicitud"></textarea>
         </label>
 
-        <p class="cot-aviso">Este formulario está en fase de integración. Por ahora no envía datos ni correos automáticamente.</p>
+        <p class="cot-aviso">Estamos realizando pruebas de envío. Tu solicitud se enviará al sistema de EPGC.</p>
 
         <div class="cot-acciones">
-          <button type="button" class="cot-cancelar" @click="cerrar">Cancelar</button>
-          <button type="submit" class="cot-enviar">Preparar solicitud</button>
+          <button type="button" class="cot-cancelar" @click="cerrar" :disabled="enviando">Cancelar</button>
+          <button type="submit" class="cot-enviar" :disabled="enviando || enviado">{{ enviando ? "Enviando..." : enviado ? "Solicitud enviada" : "Enviar solicitud" }}</button>
         </div>
       </form>
 
-      <p v-if="preparado" class="cot-confirmacion" role="status">
-        Solicitud preparada. El envío se habilitará cuando conectemos el correo o servicio correspondiente.
+      <p v-if="enviado" class="cot-confirmacion" role="status">
+        Tu solicitud fue recibida por el sistema de EPGC. Gracias por contactarnos.
+      </p>
+      <p v-if="errorEnvio" class="cot-error" role="alert">
+        {{ errorEnvio }}
       </p>
     </section>
   </div>
 </template>
 
 <script setup>
-import { reactive, ref, watch } from "vue";
+import { onBeforeUnmount, reactive, ref, watch } from "vue";
 
 const props = defineProps({
   abierto: { type: Boolean, default: false },
@@ -76,6 +79,10 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["cerrar", "solicitud-preparada"]);
+
+// URL TEMPORAL de n8n. Reemplazar por /webhook/ al pasar a producción.
+// const WEBHOOK_URL = "https://n8n-n8n.enoxgt.easypanel.host/webhook-test/epgc-cotizacion";
+const WEBHOOK_URL = "https://n8n-n8n.enoxgt.easypanel.host/webhook/epgc-cotizacion";
 
 const servicios = [
   "Cursos certificantes",
@@ -98,13 +105,44 @@ const datos = reactive({
   mensaje: "",
 });
 
-const preparado = ref(false);
+const enviando = ref(false);
+const enviado = ref(false);
+const errorEnvio = ref("");
+let temporizadorCierre = null;
+
+function cancelarCierreAutomatico() {
+  if (temporizadorCierre !== null) {
+    clearTimeout(temporizadorCierre);
+    temporizadorCierre = null;
+  }
+}
+
+function limpiarFormulario() {
+  datos.nombre = "";
+  datos.empresa = "";
+  datos.telefono = "";
+  datos.correo = "";
+  datos.servicio = "";
+  datos.ciudad = "";
+  datos.mensaje = "";
+  enviado.value = false;
+  errorEnvio.value = "";
+}
+
+onBeforeUnmount(cancelarCierreAutomatico);
 
 watch(
   () => [props.abierto, props.servicioInicial],
   ([abierto, servicioInicial]) => {
+    if (!abierto) {
+      cancelarCierreAutomatico();
+      return;
+    }
+
     if (abierto) {
-      preparado.value = false;
+      cancelarCierreAutomatico();
+      enviado.value = false;
+      errorEnvio.value = "";
       if (servicios.includes(servicioInicial)) {
         datos.servicio = servicioInicial;
       }
@@ -113,12 +151,60 @@ watch(
 );
 
 function cerrar() {
-  emit("cerrar");
+  if (!enviando.value) {
+    cancelarCierreAutomatico();
+    emit("cerrar");
+  }
 }
 
-function prepararSolicitud() {
-  preparado.value = true;
-  emit("solicitud-preparada", { ...datos });
+async function enviarSolicitud() {
+  if (enviando.value || enviado.value) return;
+
+  enviando.value = true;
+  errorEnvio.value = "";
+
+  try {
+    const respuesta = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...datos }),
+    });
+
+    let resultado = null;
+    try {
+      resultado = await respuesta.json();
+    } catch {
+      throw new Error("La respuesta del servidor no es válida.");
+    }
+
+    if (!respuesta.ok || resultado?.success !== true) {
+      throw new Error(
+        resultado?.message || "No pudimos procesar tu solicitud. Intenta nuevamente."
+      );
+    }
+
+    enviado.value = true;
+    emit("solicitud-preparada", { ...datos });
+
+    cancelarCierreAutomatico();
+    temporizadorCierre = setTimeout(() => {
+      temporizadorCierre = null;
+      if (props.abierto) {
+        emit("cerrar");
+      }
+      limpiarFormulario();
+    }, 2000);
+  } catch (error) {
+    console.error("Error al enviar cotización EPGC:", error);
+    errorEnvio.value =
+      error instanceof TypeError
+        ? "No fue posible conectar con n8n. Verifica que esté escuchando el evento de prueba y que permita solicitudes desde este sitio."
+        : error.message || "No se pudo enviar la solicitud.";
+  } finally {
+    enviando.value = false;
+  }
 }
 </script>
 
@@ -254,6 +340,19 @@ function prepararSolicitud() {
   border: 1px solid #12588d;
   color: #fff;
   background: #12588d;
+}
+
+.cot-acciones button:disabled,
+.cot-cerrar:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.cot-error {
+  padding: 0 30px 22px;
+  margin: 0;
+  color: #a52525;
+  font-size: 13px;
 }
 
 .cot-confirmacion {

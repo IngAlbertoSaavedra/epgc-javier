@@ -29,7 +29,7 @@
       </div>
     </section>
 
-    <section class="services-strip" id="servicios">
+    <!-- <section class="services-strip" id="servicios">
       <div class="services-container">
 
         <article class="service-card">
@@ -147,7 +147,7 @@
         </article>
 
       </div>
-    </section>
+    </section> -->
 
     <section class="about-preview">
       <div class="about-preview-container">

@@ -38,132 +38,109 @@
           <div class="mega-menu">
             <div class="mega-menu-grid">
 
-              <!-- 1. CAPACITACIÓN -->
               <section class="mega-column">
                 <div class="mega-column-heading">
                   <div class="mega-icon-wrap green">
                     <img
-                      :src="personasIcon"
+                      :src="obreroIcon"
                       alt=""
-                      class="mega-icon"
-                      aria-hidden="true"
-                    >
+                      class="mega-col-icon-img"
+                    />
                   </div>
-
                   <div>
-                    <h3>Capacitación</h3>
-                    <p>
-                      Formación práctica y especializada para el desarrollo
-                      de tu equipo de trabajo.
-                    </p>
+                    <h3>Seguridad industrial</h3>
+                    <p>Capacitación, prevención y condiciones seguras de trabajo.</p>
                   </div>
                 </div>
-
                 <div class="mega-links">
-                  <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeDesktopMenu">
-                    <span>Brigadas de emergencia</span>
-                    <span class="mega-arrow">›</span>
-                  </RouterLink>
-
-                  <RouterLink to="/capacitacion/corte-y-soldadura" @click="closeDesktopMenu">
-                    <span>Corte y soldadura</span>
-                    <span class="mega-arrow">›</span>
-                  </RouterLink>
-
-                  <RouterLink to="/capacitacion/trabajo-en-alturas" @click="closeDesktopMenu">
-                    <span>Trabajo en alturas</span>
-                    <span class="mega-arrow">›</span>
-                  </RouterLink>
-
-                  <RouterLink to="/capacitacion/montacarguista" @click="closeDesktopMenu">
-                    <span>Montacarguista</span>
-                    <span class="mega-arrow">›</span>
-                  </RouterLink>
-
                   <RouterLink to="/capacitacion/cursos-certificantes" @click="closeDesktopMenu">
-                    <span>Cursos certificantes</span>
-                    <span class="mega-arrow">›</span>
+                    <span>Cursos certificantes</span><span class="mega-arrow">›</span>
                   </RouterLink>
+                  <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeDesktopMenu">
+                    <span>Brigadas de emergencia</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/capacitacion/montacarguista" @click="closeDesktopMenu">
+                    <span>Montacarguista</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/capacitacion/trabajo-en-alturas" @click="closeDesktopMenu">
+                    <span>Trabajo en alturas</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/capacitacion/corte-y-soldadura" @click="closeDesktopMenu">
+                    <span>Corte y soldadura</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/estudios-ambientales/ruido-laboral" @click="closeDesktopMenu">
+                    <span>Ruido laboral</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/estudios-ambientales/iluminacion" @click="closeDesktopMenu">
+                    <span>Iluminación</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/estudios-ambientales/tierras-fisicas" @click="closeDesktopMenu">
+                    <span>Tierras físicas</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <span class="mega-pending" title="Sección pendiente de desarrollo">Vibraciones <small>Próximamente</small></span>
                 </div>
               </section>
 
-              <!-- 2. CONSULTORÍA -->
               <section class="mega-column">
                 <div class="mega-column-heading">
                   <div class="mega-icon-wrap blue">
-                    <img
-                      :src="engraneIcon"
-                      alt=""
-                      class="mega-icon"
-                      aria-hidden="true"
-                    >
+                    <img :src="engraneIcon" alt="" class="mega-icon" aria-hidden="true">
                   </div>
-
                   <div>
-                    <h3>Consultoría</h3>
-                    <p>
-                      Soluciones técnicas y normativas para el cumplimiento
-                      y una operación eficiente.
-                    </p>
+                    <h3>Ingeniería y proyectos</h3>
+                    <p>Soluciones técnicas y proyectos de protección contra incendios.</p>
                   </div>
                 </div>
-
                 <div class="mega-links">
-                  <a href="#">
-                    <span>Protección civil</span>
-                    <span class="mega-arrow">›</span>
-                  </a>
+                  <span class="mega-pending" title="Sección pendiente de desarrollo">Sistemas contra incendio <small>Próximamente</small></span>
                 </div>
               </section>
 
-              <!-- 3. ESTUDIOS AMBIENTALES -->
               <section class="mega-column">
                 <div class="mega-column-heading">
                   <div class="mega-icon-wrap leaf">
-                    <img
-                      :src="hojaArbolIcon"
-                      alt=""
-                      class="mega-icon"
-                      aria-hidden="true"
-                    >
+                    <img :src="hojaArbolIcon" alt="" class="mega-icon" aria-hidden="true">
                   </div>
-
                   <div>
-                    <h3>Estudios Ambientales</h3>
-                    <p>
-                      Evaluación y monitoreo ambiental para un entorno de
-                      trabajo más seguro y en cumplimiento.
-                    </p>
+                    <h3>Ambiental</h3>
+                    <p>Estudios, monitoreo y trámites ambientales.</p>
                   </div>
                 </div>
-
                 <div class="mega-links">
-                  <a href="#">
-                    <span>Medición</span>
-                    <span class="mega-arrow">›</span>
-                  </a>
-
-                  <a href="#">
-                    <span>Análisis de aguas</span>
-                    <span class="mega-arrow">›</span>
-                  </a>
-
-                  <a href="#">
-                    <span>Iluminación</span>
-                    <span class="mega-arrow">›</span>
-                  </a>
-
-                  <a href="#">
-                    <span>Ruido laboral</span>
-                    <span class="mega-arrow">›</span>
-                  </a>
-
-                  <a href="#">
-                    <span>Ruido perimetral</span>
-                    <span class="mega-arrow">›</span>
-                  </a>
+                  <RouterLink to="/estudios-ambientales/ruido-perimetral" @click="closeDesktopMenu">
+                    <span>Ruido perimetral</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/estudios-ambientales/analisis-agua-lodo-residuos" @click="closeDesktopMenu">
+                    <span>Análisis de agua, lodo y residuos</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <span class="mega-pending" title="Sección pendiente de desarrollo">Emisiones <small>Próximamente</small></span>
+                  <span class="mega-pending" title="Sección pendiente de desarrollo">Trámites: COA, LAU, MIA y Registro RAA <small>Próximamente</small></span>
                 </div>
               </section>
+
+              <section class="mega-column">
+                <div class="mega-column-heading">
+                  <div class="mega-icon-wrap green">
+                    <img :src="personasIcon" alt="" class="mega-icon" aria-hidden="true">
+                  </div>
+                  <div>
+                    <h3>Protección civil</h3>
+                    <p>Preparación ante emergencias y programas internos.</p>
+                  </div>
+                </div>
+                <div class="mega-links">
+                  <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeDesktopMenu">
+                    <span>Formación de brigadas</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/consultoria/proteccion-civil" @click="closeDesktopMenu">
+                    <span>Programa interno de protección civil</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/consultoria/proteccion-civil" @click="closeDesktopMenu">
+                    <span>Asesoría y seguimiento a actas</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                </div>
+              </section>
+
 
             </div>
           </div>
@@ -242,20 +219,24 @@
           <section class="mobile-service-group">
             <div class="mobile-service-heading">
               <div class="mega-icon-wrap green">
-                <img :src="personasIcon" alt="" class="mega-icon" aria-hidden="true">
+                <svg class="mega-icon" viewBox="0 0 24 24" fill="none" stroke="#217a39" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 6.5V5a2 2 0 0 1 4 0v1.5" />
+                    <path d="M4 17v-3a8 8 0 0 1 16 0v3" />
+                    <path d="M2 17h20v3H2z" />
+                  </svg>
               </div>
-              <div>
-                <strong>Capacitación</strong>
-                <small>Formación práctica y especializada.</small>
-              </div>
+              <div><strong>Seguridad industrial</strong><small>Capacitación, prevención y condiciones seguras de trabajo.</small></div>
             </div>
-
             <div class="mobile-service-links">
-              <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeMobileMenu">Brigadas de emergencia</RouterLink>
-              <RouterLink to="/capacitacion/corte-y-soldadura" @click="closeMobileMenu">Corte y soldadura</RouterLink>
-              <RouterLink to="/capacitacion/trabajo-en-alturas" @click="closeMobileMenu">Trabajo en alturas</RouterLink>
-              <RouterLink to="/capacitacion/montacarguista" @click="closeMobileMenu">Montacarguista</RouterLink>
               <RouterLink to="/capacitacion/cursos-certificantes" @click="closeMobileMenu">Cursos certificantes</RouterLink>
+              <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeMobileMenu">Brigadas de emergencia</RouterLink>
+              <RouterLink to="/capacitacion/montacarguista" @click="closeMobileMenu">Montacarguista</RouterLink>
+              <RouterLink to="/capacitacion/trabajo-en-alturas" @click="closeMobileMenu">Trabajo en alturas</RouterLink>
+              <RouterLink to="/capacitacion/corte-y-soldadura" @click="closeMobileMenu">Corte y soldadura</RouterLink>
+              <RouterLink to="/estudios-ambientales/ruido-laboral" @click="closeMobileMenu">Ruido laboral</RouterLink>
+              <RouterLink to="/estudios-ambientales/iluminacion" @click="closeMobileMenu">Iluminación</RouterLink>
+              <RouterLink to="/estudios-ambientales/tierras-fisicas" @click="closeMobileMenu">Tierras físicas</RouterLink>
+              <span class="mobile-pending">Vibraciones <small>Próximamente</small></span>
             </div>
           </section>
 
@@ -264,14 +245,10 @@
               <div class="mega-icon-wrap blue">
                 <img :src="engraneIcon" alt="" class="mega-icon" aria-hidden="true">
               </div>
-              <div>
-                <strong>Consultoría</strong>
-                <small>Soluciones técnicas y normativas.</small>
-              </div>
+              <div><strong>Ingeniería y proyectos</strong><small>Soluciones técnicas y proyectos de protección contra incendios.</small></div>
             </div>
-
             <div class="mobile-service-links">
-              <a href="#" @click.prevent="closeMobileMenu">Protección civil</a>
+              <span class="mobile-pending">Sistemas contra incendio <small>Próximamente</small></span>
             </div>
           </section>
 
@@ -280,23 +257,32 @@
               <div class="mega-icon-wrap leaf">
                 <img :src="hojaArbolIcon" alt="" class="mega-icon" aria-hidden="true">
               </div>
-              <div>
-                <strong>Estudios Ambientales</strong>
-                <small>Evaluación y monitoreo ambiental.</small>
-              </div>
+              <div><strong>Ambiental</strong><small>Estudios, monitoreo y trámites ambientales.</small></div>
             </div>
-
             <div class="mobile-service-links">
-              <a href="#" @click.prevent="closeMobileMenu">Medición</a>
-              <a href="#" @click.prevent="closeMobileMenu">Análisis de aguas</a>
-              <a href="#" @click.prevent="closeMobileMenu">Iluminación</a>
-              <a href="#" @click.prevent="closeMobileMenu">Ruido laboral</a>
-              <a href="#" @click.prevent="closeMobileMenu">Ruido perimetral</a>
+              <RouterLink to="/estudios-ambientales/ruido-perimetral" @click="closeMobileMenu">Ruido perimetral</RouterLink>
+              <RouterLink to="/estudios-ambientales/analisis-agua-lodo-residuos" @click="closeMobileMenu">Análisis de agua, lodo y residuos</RouterLink>
+              <span class="mobile-pending">Emisiones <small>Próximamente</small></span>
+              <span class="mobile-pending">Trámites: COA, LAU, MIA y Registro RAA <small>Próximamente</small></span>
             </div>
           </section>
+
+          <section class="mobile-service-group">
+            <div class="mobile-service-heading">
+              <div class="mega-icon-wrap green">
+                <img :src="personasIcon" alt="" class="mega-icon" aria-hidden="true">
+              </div>
+              <div><strong>Protección civil</strong><small>Preparación ante emergencias y programas internos.</small></div>
+            </div>
+            <div class="mobile-service-links">
+              <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeMobileMenu">Formación de brigadas</RouterLink>
+              <RouterLink to="/consultoria/proteccion-civil" @click="closeMobileMenu">Programa interno de protección civil</RouterLink>
+              <RouterLink to="/consultoria/proteccion-civil" @click="closeMobileMenu">Asesoría y seguimiento a actas</RouterLink>
+            </div>
+          </section>
+
         </div>
 
-        <a href="#" class="mobile-nav-link" @click.prevent="closeMobileMenu">Capacitaciones</a>
         <RouterLink
           to="/capacitadores"
           class="mobile-nav-link"
@@ -325,6 +311,7 @@ import logoHeader from '../../assets/images/logo/logo-epgc-horizontal.webp'
 import personasIcon from '../../assets/icons/personas.png'
 import engraneIcon from '../../assets/icons/engrane.png'
 import hojaArbolIcon from '../../assets/icons/hoja_arbol.png'
+import obreroIcon from '../../assets/icons/obrero.png'
 
 const route = useRoute()
 const cotizacionAbierta = ref(false)
@@ -512,7 +499,7 @@ const closeMobileMenu = () => {
   top: calc(100% - 6px);
   left: 50%;
 
-  width: min(920px, calc(100vw - 40px));
+  width: min(1160px, calc(100vw - 40px));
 
   padding-top: 6px;
 
@@ -566,7 +553,7 @@ const closeMobileMenu = () => {
 
 .mega-menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   background: #ffffff;
 
@@ -679,6 +666,38 @@ const closeMobileMenu = () => {
     color 0.18s ease,
     padding-left 0.18s ease,
     background 0.18s ease;
+}
+
+
+.mega-pending {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 5px;
+  border-bottom: 1px solid #edf1f4;
+  color: #7d8895;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.mega-pending small {
+  color: #83919f;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.mobile-pending {
+  display: block;
+  padding: 10px 14px;
+  color: #7d8895;
+  font-size: 12px;
+}
+
+.mobile-pending small {
+  margin-left: 5px;
+  font-size: 10px;
 }
 
 .mega-links a:hover {

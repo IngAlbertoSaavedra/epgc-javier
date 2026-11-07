@@ -13,7 +13,7 @@
         </div>
       </section>
 
-      <section class="cap-intro">
+      <section v-if="capacitacion.tipo !== 'catalogo'" class="cap-intro">
         <div class="cap-container cap-intro-grid">
           <div class="cap-intro-title">
             <span class="cap-section-kicker"><span>CAPACITACIÓN</span><strong>EPGC</strong><i></i></span>
@@ -37,6 +37,12 @@
           </article>
         </div>
       </section>
+
+      <div
+        v-if="capacitacion.tipo === 'catalogo'"
+        class="cap-catalogo-spacer"
+        aria-hidden="true"
+      ></div>
 
       <CatalogoCursos v-if="capacitacion.tipo === 'catalogo'" />
 
@@ -89,6 +95,16 @@ const capacitacion = computed(() => capacitaciones[route.params.slug] ?? null)
     background-repeat: no-repeat;
     background-color: #082a50;
     overflow: hidden;
+}
+/* Separación superior del catálogo de cursos */
+.cap-catalogo-spacer {
+  height: 56px;
+}
+
+@media (max-width: 768px) {
+  .cap-catalogo-spacer {
+    height: 28px;
+  }
 }
 /* Con imagen propia, ajustarla a la altura disponible: no recorta ni cabeza ni ruedas. */
 .cap-hero-imagen-propia {

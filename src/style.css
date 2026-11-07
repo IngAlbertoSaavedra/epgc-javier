@@ -18,6 +18,12 @@
   --epgc-surface: #ffffff;
   --epgc-surface-soft: #f4f7fa;
   --epgc-max-width: 1200px;
+
+  /* Tipografia del menu Servicios en escritorio */
+  --epgc-menu-heading-size: 15px;
+  --epgc-menu-description-size: 11px;
+  --epgc-menu-option-size: 13px;
+  --epgc-menu-pending-size: 10px;
 }
 
 *,

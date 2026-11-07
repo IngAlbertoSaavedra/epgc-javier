@@ -28,9 +28,9 @@ export const capacitaciones = {
   "cursos-certificantes": {
     slug: "cursos-certificantes",
     titulo: "Cursos certificantes",
-    introduccion: "Catálogo de referencia pendiente de validación por EPGC.",
+    introduccion: "",
     temas: [],
-    aviso: "Catálogo provisional. Cursos y acreditaciones pendientes de confirmación por EPGC.",
+    aviso: "",
     imagen: null,
     tipo: "catalogo",
   },

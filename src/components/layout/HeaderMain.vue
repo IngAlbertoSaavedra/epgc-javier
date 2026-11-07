@@ -83,16 +83,24 @@
 
               <section class="mega-column">
                 <div class="mega-column-heading">
-                  <div class="mega-icon-wrap blue">
-                    <img :src="engraneIcon" alt="" class="mega-icon" aria-hidden="true">
+                  <div class="mega-icon-wrap green">
+                    <img :src="personasIcon" alt="" class="mega-icon" aria-hidden="true">
                   </div>
                   <div>
-                    <h3>Ingeniería y proyectos</h3>
-                    <p>Soluciones técnicas y proyectos de protección contra incendios.</p>
+                    <h3>Protección civil</h3>
+                    <p>Preparación ante emergencias y programas internos.</p>
                   </div>
                 </div>
                 <div class="mega-links">
-                  <span class="mega-pending" title="Sección pendiente de desarrollo">Sistemas contra incendio <small>Próximamente</small></span>
+                  <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeDesktopMenu">
+                    <span>Formación de brigadas</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/consultoria/proteccion-civil" @click="closeDesktopMenu">
+                    <span>Programa interno de protección civil</span><span class="mega-arrow">›</span>
+                  </RouterLink>
+                  <RouterLink to="/consultoria/proteccion-civil" @click="closeDesktopMenu">
+                    <span>Asesoría y seguimiento a actas</span><span class="mega-arrow">›</span>
+                  </RouterLink>
                 </div>
               </section>
 
@@ -120,27 +128,19 @@
 
               <section class="mega-column">
                 <div class="mega-column-heading">
-                  <div class="mega-icon-wrap green">
-                    <img :src="personasIcon" alt="" class="mega-icon" aria-hidden="true">
+                  <div class="mega-icon-wrap blue">
+                    <img :src="engraneIcon" alt="" class="mega-icon" aria-hidden="true">
                   </div>
                   <div>
-                    <h3>Protección civil</h3>
-                    <p>Preparación ante emergencias y programas internos.</p>
+                    <h3>Ingeniería y proyectos</h3>
+                    <p>Soluciones técnicas y proyectos de protección contra incendios.</p>
                   </div>
                 </div>
                 <div class="mega-links">
-                  <RouterLink to="/capacitacion/brigadas-de-emergencia" @click="closeDesktopMenu">
-                    <span>Formación de brigadas</span><span class="mega-arrow">›</span>
-                  </RouterLink>
-                  <RouterLink to="/consultoria/proteccion-civil" @click="closeDesktopMenu">
-                    <span>Programa interno de protección civil</span><span class="mega-arrow">›</span>
-                  </RouterLink>
-                  <RouterLink to="/consultoria/proteccion-civil" @click="closeDesktopMenu">
-                    <span>Asesoría y seguimiento a actas</span><span class="mega-arrow">›</span>
-                  </RouterLink>
+                  <span class="mega-pending" title="Sección pendiente de desarrollo">Sistemas contra incendio <small>Próximamente</small></span>
                 </div>
               </section>
-
+              
 
             </div>
           </div>
@@ -626,7 +626,7 @@ const closeMobileMenu = () => {
 
   color: #102f59;
 
-  font-size: 14px;
+  font-size: var(--epgc-menu-heading-size, 15px);
   line-height: 1.15;
   font-weight: 800;
 }
@@ -636,7 +636,7 @@ const closeMobileMenu = () => {
 
   color: #687786;
 
-  font-size: 10px;
+  font-size: var(--epgc-menu-description-size, 11px);
   line-height: 1.35;
 }
 
@@ -658,7 +658,7 @@ const closeMobileMenu = () => {
 
   color: #263f5f;
 
-  font-size: 11px;
+  font-size: var(--epgc-menu-option-size, 13px);
   font-weight: 500;
   text-decoration: none;
 
@@ -678,13 +678,13 @@ const closeMobileMenu = () => {
   padding: 7px 5px;
   border-bottom: 1px solid #edf1f4;
   color: #7d8895;
-  font-size: 11px;
+  font-size: var(--epgc-menu-option-size, 13px);
   line-height: 1.4;
 }
 
 .mega-pending small {
   color: #83919f;
-  font-size: 9px;
+  font-size: var(--epgc-menu-pending-size, 10px);
   white-space: nowrap;
 }
 

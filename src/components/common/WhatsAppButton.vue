@@ -14,7 +14,8 @@
 <script setup>
 import whatsappIcon from "../../assets/icons/whatsapp.svg";
 
-const telefono = "523316673430";
+//const telefono = "523316673430";
+const telefono = "523314143336";
 const mensaje =
   "Hola, buen día. Visité el sitio web de EPGC y me gustaría recibir información sobre sus servicios.";
 const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
